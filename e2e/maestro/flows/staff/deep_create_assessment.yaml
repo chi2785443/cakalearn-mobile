@@ -1,4 +1,4 @@
-appId: com.cakale.edu.app
+appId: com.cakalearn.app
 ---
 # Staff: create and publish a new assessment via CreateAssessmentSheet
 # (per mobile/CLAUDE.md: classroom is picked inside the sheet, not passed in).

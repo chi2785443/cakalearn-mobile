@@ -1,4 +1,4 @@
-appId: com.cakale.edu.app
+appId: com.cakalearn.app
 ---
 # Student: view own published First Term result/report card (seed data guarantees
 # a published TermResult + approved StudentReport exists for this account).

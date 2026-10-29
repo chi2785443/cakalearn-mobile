@@ -43,10 +43,10 @@ const CONTACT = [
   {
     icon: 'mail-outline' as const,
     label: 'Email Support',
-    value: 'support@cakale-edu.app',
+    value: 'support@cakalearn.app',
     color: '#4C3FC4',
     bg: '#F0EEFF',
-    action: () => Linking.openURL('mailto:support@cakale-edu.app'),
+    action: () => Linking.openURL('mailto:support@cakalearn.app'),
   },
   {
     icon: 'logo-whatsapp' as const,
@@ -54,15 +54,15 @@ const CONTACT = [
     value: 'Chat with us',
     color: '#16a34a',
     bg: '#dcfce7',
-    action: () => Linking.openURL('https://wa.me/message/cakale-edu'),
+    action: () => Linking.openURL('https://wa.me/message/cakalearn'),
   },
   {
     icon: 'globe-outline' as const,
     label: 'Help Centre',
-    value: 'cakale-edu.app/help',
+    value: 'cakalearn.app/help',
     color: '#0ea5e9',
     bg: '#e0f2fe',
-    action: () => Linking.openURL('https://cakale-edu.app/help'),
+    action: () => Linking.openURL('https://cakalearn.app/help'),
   },
 ];
 

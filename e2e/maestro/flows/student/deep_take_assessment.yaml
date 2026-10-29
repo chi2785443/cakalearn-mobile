@@ -1,4 +1,4 @@
-appId: com.cakale.edu.app
+appId: com.cakalearn.app
 ---
 # Student: take a seeded, published assessment end-to-end, including the proctoring
 # flow (take.tsx auto-requests camera+mic, per mobile/CLAUDE.md — pre-granted by

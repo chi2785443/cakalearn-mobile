@@ -1,4 +1,4 @@
-appId: com.cakale.edu.app
+appId: com.cakalearn.app
 ---
 # Admin: approve a pending student report. JSS1A has 3 seeded reports left in
 # SUBMITTED status by seed-demo-school.ts, so at least one pending item is guaranteed.
@@ -8,7 +8,7 @@ appId: com.cakale.edu.app
     env:
       EMAIL: "test@mail.cakale.com"
       PASSWORD: "Demo@2026!"
-- openLink: "cakale-edu://admin-results"
+- openLink: "cakalearn://admin-results"
 - extendedWaitUntil:
     visible: "Results Overview"
     timeout: 15000

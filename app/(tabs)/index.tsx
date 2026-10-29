@@ -130,7 +130,7 @@ const NoSchoolState = React.memo(function NoSchoolState({ firstName }: { firstNa
             color: 'rgba(255,255,255,0.45)', fontSize: 14,
             textAlign: 'center', marginTop: 8, lineHeight: 22, maxWidth: 290,
           }}>
-            You&apos;re not part of a school yet.{'\n'}Apply to get the full Cakale EDU experience.
+            You&apos;re not part of a school yet.{'\n'}Apply to get the full Cakalearn experience.
           </Text>
 
           {/* 3-step journey */}
@@ -332,7 +332,7 @@ export default function DashboardTab() {
         backgroundColor: '#fff', borderBottomWidth: 1, borderBottomColor: '#f3f4f6',
       }}>
         <Image
-          source={require('@/assets/images/cakale_edu_logo.svg')}
+          source={require('@/assets/images/cakalearn_logo.svg')}
           style={{ width: 100, height: 28 }}
           contentFit="contain"
         />

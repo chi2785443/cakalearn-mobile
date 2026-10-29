@@ -169,7 +169,7 @@ export default function AdminAttendanceScreen() {
           To approve, flag, or manage records, use the{' '}
           <Text
             style={{ fontWeight: '800', textDecorationLine: 'underline' }}
-            onPress={() => Linking.openURL('https://cakale-edu.app/dashboard')}
+            onPress={() => Linking.openURL('https://cakalearn.app/dashboard')}
           >
             website dashboard
           </Text>.

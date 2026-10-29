@@ -1,4 +1,4 @@
-appId: com.cakale.edu.app
+appId: com.cakalearn.app
 ---
 # Staff clock-in when the school's attendanceMethod is "qr_code": the Attendance
 # card on the Action (FAB) sheet swaps its GPS flow for a "Scan QR Code" button

@@ -4,8 +4,8 @@ import { router } from 'expo-router';
 import { useAuthStore } from '@/store/authStore';
 import { ApiError, NetworkError } from '@/lib/errors';
 
-export const ACCESS_TOKEN_KEY = 'cakale_edu_access_token';
-export const REFRESH_TOKEN_KEY = 'cakale_edu_refresh_token';
+export const ACCESS_TOKEN_KEY = 'cakalearn_access_token';
+export const REFRESH_TOKEN_KEY = 'cakalearn_refresh_token';
 
 const BASE_URL = process.env.EXPO_PUBLIC_BACKEND_BASE_URL ?? 'http://localhost:8000/api/v1/';
 

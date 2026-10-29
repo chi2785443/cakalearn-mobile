@@ -1,4 +1,4 @@
-appId: com.cakale.edu.app
+appId: com.cakalearn.app
 ---
 # Staff: review a pending assessment retake request (seed data includes at least
 # one pending retake request in JSS1A/JSS2A per seed-demo-school.ts).

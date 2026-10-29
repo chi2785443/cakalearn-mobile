@@ -1,4 +1,4 @@
-appId: com.cakale.edu.app
+appId: com.cakalearn.app
 ---
 # Reusable logout subflow. Call via `runFlow` after a smoke/deep flow finishes.
 - tapOn: "Account"

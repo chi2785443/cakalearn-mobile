@@ -639,7 +639,7 @@ export default function AccountTab() {
 
           <SettingsGroup label="Support">
             <SettingsRow icon="help-circle-outline" iconBg="#f1f5f9" iconColor="#64748b" label="Help & Support" onPress={() => router.push('/account/help-support' as never)} />
-            <SettingsRow icon="information-circle-outline" iconBg="#f1f5f9" iconColor="#64748b" label="About Cakale EDU" value="v1.0.0" onPress={() => router.push('/account/about' as never)} />
+            <SettingsRow icon="information-circle-outline" iconBg="#f1f5f9" iconColor="#64748b" label="About Cakalearn" value="v1.0.0" onPress={() => router.push('/account/about' as never)} />
           </SettingsGroup>
 
           {/* ── Sign out ─────────────────────────────────────────── */}

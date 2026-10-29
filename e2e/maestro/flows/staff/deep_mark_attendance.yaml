@@ -1,4 +1,4 @@
-appId: com.cakale.edu.app
+appId: com.cakalearn.app
 ---
 # Staff (class teacher of JSS1A): clock in for attendance (GPS/location method).
 # Location permission is pre-granted by shared/login.yaml's launchApp so no OS

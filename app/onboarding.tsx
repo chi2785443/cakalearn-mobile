@@ -28,7 +28,7 @@ const SLIDES = [
     accent: '#4C3FC4',
     tag: 'WELCOME',
     title: 'Education,\nreimagined.',
-    body: 'Cakale EDU brings schools, students, staff and parents together in one beautiful place.',
+    body: 'Cakalearn brings schools, students, staff and parents together in one beautiful place.',
   },
   {
     id: '1',

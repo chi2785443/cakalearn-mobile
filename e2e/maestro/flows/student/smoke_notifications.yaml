@@ -1,4 +1,4 @@
-appId: com.cakale.edu.app
+appId: com.cakalearn.app
 ---
 # This screen isn't reachable from the Features grid card taps; opened via deep link.
 - runFlow:
@@ -6,7 +6,7 @@ appId: com.cakale.edu.app
     env:
       EMAIL: "chioma.eze@mail.cakale.com"
       PASSWORD: "Demo@2026!"
-- openLink: "cakale-edu://notifications"
+- openLink: "cakalearn://notifications"
 - extendedWaitUntil:
     visible: "Notifications"
     timeout: 15000

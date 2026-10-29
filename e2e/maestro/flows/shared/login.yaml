@@ -1,4 +1,4 @@
-appId: com.cakale.edu.app
+appId: com.cakalearn.app
 ---
 # Reusable login subflow. Call via `runFlow` passing EMAIL/PASSWORD env vars.
 - launchApp:

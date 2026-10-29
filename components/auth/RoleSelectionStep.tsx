@@ -15,7 +15,7 @@ const ROLES: RoleOption[] = [
   {
     role: "super_admin",
     label: "School Owner / Admin",
-    description: "Register and manage your school on Cakale EDU",
+    description: "Register and manage your school on Cakalearn",
     icon: "business-outline",
   },
   {

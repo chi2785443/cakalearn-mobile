@@ -1,4 +1,4 @@
-appId: com.cakale.edu.app
+appId: com.cakalearn.app
 ---
 # Admin: compile term results for a classroom then publish them.
 # First-draft flow — button labels below are best-effort guesses from generate-results.tsx
@@ -23,7 +23,7 @@ appId: com.cakale.edu.app
     visible: "success"
     timeout: 20000
 - back
-- openLink: "cakale-edu://admin-results"
+- openLink: "cakalearn://admin-results"
 - extendedWaitUntil:
     visible: "Results Overview"
     timeout: 15000
