@@ -14,7 +14,7 @@ import { ClockPayload } from '@/interface/attendance.interface';
  * lets anyone skip verification. The server rejects entries older than 24h.
  */
 
-const STORAGE_KEY = 'cakale-attendance-outbox';
+const STORAGE_KEY = 'cakalearn-attendance-outbox';
 
 export interface PendingClock {
   userId: string;

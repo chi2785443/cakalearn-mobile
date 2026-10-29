@@ -20,7 +20,7 @@ import type { ProctoringEventInput, ProctoringTrigger } from '@/interface/procto
  * sent, so a shared phone never submits one student's answers as another.
  */
 
-const STORAGE_KEY = 'cakale-exam-outbox';
+const STORAGE_KEY = 'cakalearn-exam-outbox';
 const RECORDINGS_DIR = `${FileSystem.documentDirectory ?? ''}exam-recordings/`;
 const PROCTORING_DIR = `${FileSystem.documentDirectory ?? ''}exam-proctoring/`;
 /** Keeps a long offline exam from filling the phone with queued captures. */

@@ -6,7 +6,7 @@ import { QueryClient, focusManager, onlineManager } from '@tanstack/react-query'
 import { experimental_createQueryPersister } from '@tanstack/react-query-persist-client';
 
 /** Storage key prefix for persisted queries. One AsyncStorage row per query. */
-const QUERY_CACHE_PREFIX = 'cakale-q';
+const QUERY_CACHE_PREFIX = 'cakalearn-q';
 
 /** How long a screen's last-seen data stays usable offline. */
 const OFFLINE_CACHE_MAX_AGE = 7 * 24 * 60 * 60 * 1000;

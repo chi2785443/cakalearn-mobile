@@ -24,7 +24,7 @@ describe('Admin - full smoke suite', () => {
     });
 
     it.skip("deep_approve_student_report [needs real testIDs before this can run]: approves the first pending student report for JSS1A", async () => {
-      await device.openURL({ url: 'cakale-edu://admin-results' });
+      await device.openURL({ url: 'cakalearn://admin-results' });
       await waitFor(element(by.text('Results Overview'))).toBeVisible().withTimeout(15000);
       await element(by.text('JSS 1A')).tap();
 
@@ -50,7 +50,7 @@ describe('Admin - full smoke suite', () => {
       await waitFor(element(by.text('success'))).toBeVisible().withTimeout(20000);
       await device.pressBack();
 
-      await device.openURL({ url: 'cakale-edu://admin-results' });
+      await device.openURL({ url: 'cakalearn://admin-results' });
       await waitFor(element(by.text('Results Overview'))).toBeVisible().withTimeout(15000);
       await element(by.text('JSS 1A')).tap();
 
@@ -88,7 +88,7 @@ describe('Admin - full smoke suite', () => {
     });
 
     it("smoke_admin_results: navigates to Results Overview and back", async () => {
-      await device.openURL({ url: 'cakale-edu://admin-results' });
+      await device.openURL({ url: 'cakalearn://admin-results' });
       await waitFor(element(by.text('Results Overview'))).toBeVisible().withTimeout(15000);
       await device.pressBack();
     });
@@ -155,7 +155,7 @@ describe('Admin - full smoke suite', () => {
     });
 
     it("smoke_notifications: navigates to Notifications and back", async () => {
-      await device.openURL({ url: 'cakale-edu://notifications' });
+      await device.openURL({ url: 'cakalearn://notifications' });
       await waitFor(element(by.text('Notifications'))).toBeVisible().withTimeout(15000);
       await device.pressBack();
     });
@@ -173,7 +173,7 @@ describe('Admin - full smoke suite', () => {
     });
 
     it("smoke_subscription: navigates to Subscription and back", async () => {
-      await device.openURL({ url: 'cakale-edu://subscription' });
+      await device.openURL({ url: 'cakalearn://subscription' });
       await waitFor(element(by.text('Subscription'))).toBeVisible().withTimeout(15000);
       await device.pressBack();
     });

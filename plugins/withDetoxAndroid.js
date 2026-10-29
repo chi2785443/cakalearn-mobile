@@ -86,7 +86,7 @@ subprojects { subproject ->
     (config) => {
       const destDir = path.join(
         config.modRequest.platformProjectRoot,
-        'app/src/androidTest/java/com/cakale/edu/app'
+        'app/src/androidTest/java/com/cakalearn/app'
       );
       fs.mkdirSync(destDir, { recursive: true });
       fs.copyFileSync(

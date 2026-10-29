@@ -1,4 +1,4 @@
-# Cakale EDU Mobile — React Native (Expo)
+# Cakalearn Mobile — React Native (Expo)
 
 - **Framework:** Expo SDK 57 + Expo Router | **Runtime:** React Native 0.86
 - **Dev:** `pnpm start` | **Package manager:** pnpm | **New Architecture:** enabled
@@ -8,7 +8,7 @@
 ## Styling
 
 - **NativeWind v4** — use `className` always. `style={{}}` only for dynamic values (colors, calculated dims).
-- **SVG logos:** `expo-image` with `require('@/assets/images/cakale_edu_*.svg')` — never RN `<Image>` for SVGs
+- **SVG logos:** `expo-image` with `require('@/assets/images/cakalearn_*.svg')` — never RN `<Image>` for SVGs
 - **Icons:** `Ionicons` from `@expo/vector-icons`
 - **Pressable:** never set `backgroundColor` in callback style — put it on an inner `View`; callback for opacity/transform only
 - **Color palette:** primary `#4C3FC4`, accent `#F5486A`, pastels: `#F0EEFF` / `#FFF0F0` / `#E8F5EE` / `#E8F4FF`
@@ -21,7 +21,7 @@
 
 - **Server state:** TanStack React Query v5. The client lives in `lib/queryClient.ts` (never `new QueryClient` elsewhere).
 - **Global state:** Zustand v5 — persisted via AsyncStorage. Stores `user`, `isAuthenticated`, `selectedSchoolId`, `hasOnboarded`
-- **Tokens:** `expo-secure-store` (keys: `cakale_edu_access_token`, `cakale_edu_refresh_token`)
+- **Tokens:** `expo-secure-store` (keys: `cakalearn_access_token`, `cakalearn_refresh_token`, `services/axios.service.ts`)
 - **HTTP:** Axios (`services/axios.service.ts`) — Bearer token, auto-refresh on 401, all errors → `new Error(message)`
 - **Refresh:** `POST /auth/refresh { refresh_token }` returns a **rotated** pair, and both tokens are re-saved to SecureStore. On failure the interceptor wipes SecureStore, calls `useAuthStore.getState().logout()` and `router.replace('/(auth)/sign-in')`. Clearing only the tokens used to strand the user on screens where every request failed.
 - **Forms:** React Hook Form v7 + Zod v4
@@ -31,7 +31,7 @@
 
 ## Offline Support
 
-- **Cached screens:** every query is persisted per-query to AsyncStorage (`experimental_createQueryPersister`, prefix `cakale-q`, 7-day max age, busted by app version). Queries use `networkMode: 'offlineFirst'` so the saved copy is read even offline. Per-query rows, not one blob: Android AsyncStorage rows fail above ~2MB.
+- **Cached screens:** every query is persisted per-query to AsyncStorage (`experimental_createQueryPersister`, prefix `cakalearn-q`, 7-day max age, busted by app version). Queries use `networkMode: 'offlineFirst'` so the saved copy is read even offline. Per-query rows, not one blob: Android AsyncStorage rows fail above ~2MB.
 - **Never persisted:** live "right now" keys in `NEVER_PERSIST` (`attendance-today`, `attendance-admin-today`, `app-release`). Add a key there if showing yesterday's copy would mislead.
 - **Sign-out clears it:** `OfflineDataGate` in `app/_layout.tsx` calls `clearQueryCache()` when `isAuthenticated` goes false, so a shared phone never shows the previous user's data.
 - **Startup offline:** `AuthInitializer` keeps the saved user if `getProfile` fails with no response or a 5xx; only an `ApiError` < 500 signs out.

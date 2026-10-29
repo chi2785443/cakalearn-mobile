@@ -80,7 +80,7 @@ describe('Parent - full smoke suite', () => {
     });
 
     it("smoke_notifications: navigates to Notifications and back", async () => {
-      await device.openURL({ url: 'cakale-edu://notifications' });
+      await device.openURL({ url: 'cakalearn://notifications' });
       await waitFor(element(by.text('Notifications'))).toBeVisible().withTimeout(15000);
       await device.pressBack();
     });
