@@ -26,7 +26,6 @@ export function JobApplicationStep({ onBack }: Props) {
 
   const { data: jobs = [], isLoading: loadingJobs } = useBrowseJobs({ search });
   const { mutate: apply, isPending: applying } = useApplyForJob(
-    selectedJob?.school?.id ?? '',
     () => setSubStep('success')
   );
 

@@ -22,11 +22,7 @@ export function useLogin() {
       }
       login(response.user as unknown as UserType);
       queryClient.clear();
-      if (response.user.isAdmin) {
-        router.replace('/(admin)/dashboard' as never);
-      } else {
-        router.replace('/(tabs)/' as never);
-      }
+      router.replace('/(tabs)/' as never);
     },
   });
 }
