@@ -31,7 +31,7 @@ function safeGrade(v: unknown): string {
 }
 
 
-const AVATAR_COLORS = ['#6366f1', '#0ea5e9', '#14b8a6', '#7c3aed', '#f59e0b', '#e11d48'];
+const AVATAR_COLORS = ['#4C3FC4', '#F5486A'];
 function getAvatarColor(id: string) {
   let h = 0;
   for (let i = 0; i < id.length; i++) h = id.charCodeAt(i) + ((h << 5) - h);
@@ -247,8 +247,8 @@ export default function ScoreCard({ score, compact = false, pending = false, und
         {[
           { label: 'Correct',  value: String(correct),   icon: 'checkmark-circle-outline' as const, color: '#16a34a' },
           { label: 'Wrong',    value: String(incorrect),  icon: 'close-circle-outline' as const,     color: '#dc2626' },
-          { label: 'Answered', value: String(answered),   icon: 'help-circle-outline' as const,      color: '#0ea5e9' },
-          { label: 'GPA',      value: gp != null && !isNaN(gp) ? gp.toFixed(1) : '—', icon: 'trophy-outline' as const, color: '#7c3aed' },
+          { label: 'Answered', value: String(answered),   icon: 'help-circle-outline' as const,      color: '#6b7280' },
+          { label: 'GPA',      value: gp != null && !isNaN(gp) ? gp.toFixed(1) : '—', icon: 'trophy-outline' as const, color: '#6b7280' },
         ].map((stat, i) => (
           <View key={stat.label} style={{
             flex: 1, alignItems: 'center', gap: 4, paddingVertical: 14,

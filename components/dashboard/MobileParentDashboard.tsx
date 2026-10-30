@@ -69,12 +69,12 @@ export default function MobileParentDashboard({ schoolId, schoolName, firstName 
 
         {/* ── Enquiry stats ─────────────────────────────────── */}
         <View style={{ flexDirection: 'row', gap: 10 }}>
-          <GradCard label="Total Enquiries" value={d.enquiries.total} icon="help-circle" colors={['#F5486A', '#E03058']} />
-          <GradCard label="Awaiting Reply" value={d.enquiries.open} icon="time" colors={['#d97706', '#b45309']} />
+          <GradCard label="Total Enquiries" value={d.enquiries.total} icon="help-circle" tone="neutral" />
+          <GradCard label="Awaiting Reply" value={d.enquiries.open} icon="time" tone="warning" />
         </View>
         <View style={{ flexDirection: 'row', gap: 10 }}>
-          <GradCard label="Replied" value={d.enquiries.replied} icon="checkmark-circle" colors={['#059669', '#047857']} />
-          <GradCard label="Closed" value={d.enquiries.closed} icon="lock-closed" colors={['#6b7280', '#4b5563']} />
+          <GradCard label="Replied" value={d.enquiries.replied} icon="checkmark-circle" tone="success" />
+          <GradCard label="Closed" value={d.enquiries.closed} icon="lock-closed" tone="neutral" />
         </View>
 
         {/* ── Linked children ───────────────────────────────── */}

@@ -358,9 +358,7 @@ function SchoolPickerView({
             schools.map(school => (
               <Pressable key={school.id} onPress={() => onSelect(school)} style={({ pressed }) => ({ opacity: pressed ? 0.85 : 1 })}>
                 <View style={{ backgroundColor: '#fff', borderRadius: 16, padding: 14, borderWidth: 1, borderColor: '#e5e7eb', flexDirection: 'row', alignItems: 'center', gap: 12 }}>
-                  <View style={{ width: 44, height: 44, borderRadius: 14, backgroundColor: '#fef3c7', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                    <Ionicons name="school-outline" size={20} color="#d97706" />
-                  </View>
+                  <Ionicons name="school-outline" size={22} color="#4C3FC4" />
                   <View style={{ flex: 1 }}>
                     <Text style={{ fontSize: 14, fontWeight: '800', color: '#111827' }} numberOfLines={1}>{school.name}</Text>
                     {(school.city || school.state) && (
@@ -513,10 +511,8 @@ function NewEnquiryFormView({
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ padding: 16, gap: 16, paddingBottom: 40 }}>
         {/* School strip */}
         {school && (
-          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12, backgroundColor: '#fff', borderRadius: 14, padding: 14, borderWidth: 1, borderColor: '#fde68a' }}>
-            <View style={{ width: 44, height: 44, borderRadius: 14, backgroundColor: '#fef3c7', alignItems: 'center', justifyContent: 'center' }}>
-              <Ionicons name="school-outline" size={20} color="#d97706" />
-            </View>
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12, backgroundColor: '#fff', borderRadius: 14, padding: 14, borderWidth: 1, borderColor: '#e5e7eb' }}>
+            <Ionicons name="school-outline" size={22} color="#4C3FC4" />
             <View style={{ flex: 1 }}>
               <Text style={{ fontSize: 14, fontWeight: '800', color: '#111827' }}>{school.name}</Text>
               {(school.city || school.state) && (

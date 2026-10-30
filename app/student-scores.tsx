@@ -26,14 +26,12 @@ const TERM_LABELS: Record<string, string> = {
 
 /* ── Helpers ─────────────────────────────────────────────────────── */
 function pctColor(pct: number): string {
-  if (pct >= 75) return '#16a34a';
-  if (pct >= 60) return '#0284c7';
+  if (pct >= 60) return '#16a34a';
   if (pct >= 45) return '#d97706';
   return '#dc2626';
 }
 function pctBg(pct: number): string {
-  if (pct >= 75) return '#dcfce7';
-  if (pct >= 60) return '#dbeafe';
+  if (pct >= 60) return '#dcfce7';
   if (pct >= 45) return '#fef3c7';
   return '#fee2e2';
 }

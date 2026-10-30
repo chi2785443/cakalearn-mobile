@@ -37,22 +37,18 @@ function fmtScore(n: number | null | undefined): string {
 function gradeColorHex(grade: string | null): string {
   if (!grade) return '#374151';
   const g = grade.toUpperCase();
-  if (g.startsWith('A')) return '#047857';
-  if (g.startsWith('B')) return '#1d4ed8';
+  if (g.startsWith('A') || g.startsWith('B')) return '#047857';
   if (g.startsWith('C')) return '#b45309';
-  if (g.startsWith('D')) return '#c2410c';
   return '#dc2626';
 }
 
 function pctColor(pct: number): string {
-  if (pct >= 75) return '#16a34a';
-  if (pct >= 60) return '#0284c7';
+  if (pct >= 60) return '#16a34a';
   if (pct >= 45) return '#d97706';
   return '#dc2626';
 }
 function pctBg(pct: number): string {
-  if (pct >= 75) return '#dcfce7';
-  if (pct >= 60) return '#dbeafe';
+  if (pct >= 60) return '#dcfce7';
   if (pct >= 45) return '#fef3c7';
   return '#fee2e2';
 }
@@ -478,15 +474,15 @@ function ReportCardModal({ result, onClose }: { result: TermResult; onClose: () 
                 {(rc?.termResult.teacherRemarks || rc?.termResult.principalRemarks) && (
                   <View style={{ gap: 10 }}>
                     {rc?.termResult.teacherRemarks && (
-                      <View style={{ backgroundColor: '#eff6ff', borderRadius: 14, padding: 14, borderLeftWidth: 3, borderLeftColor: '#3b82f6' }}>
-                        <Text style={{ fontSize: 10, fontWeight: '800', color: '#1d4ed8', textTransform: 'uppercase', letterSpacing: 0.5, marginBottom: 6 }}>{"Class Teacher's Remarks"}</Text>
-                        <Text style={{ fontSize: 13, color: '#1e3a8a', lineHeight: 20 }}>{rc.termResult.teacherRemarks}</Text>
+                      <View style={{ backgroundColor: '#F0EEFF', borderRadius: 14, padding: 14, borderLeftWidth: 3, borderLeftColor: '#4C3FC4' }}>
+                        <Text style={{ fontSize: 10, fontWeight: '800', color: '#4C3FC4', textTransform: 'uppercase', letterSpacing: 0.5, marginBottom: 6 }}>{"Class Teacher's Remarks"}</Text>
+                        <Text style={{ fontSize: 13, color: '#312a6b', lineHeight: 20 }}>{rc.termResult.teacherRemarks}</Text>
                       </View>
                     )}
                     {rc?.termResult.principalRemarks && (
-                      <View style={{ backgroundColor: '#faf5ff', borderRadius: 14, padding: 14, borderLeftWidth: 3, borderLeftColor: '#7c3aed' }}>
-                        <Text style={{ fontSize: 10, fontWeight: '800', color: '#7c3aed', textTransform: 'uppercase', letterSpacing: 0.5, marginBottom: 6 }}>{"Principal's Remarks"}</Text>
-                        <Text style={{ fontSize: 13, color: '#4c1d95', lineHeight: 20 }}>{rc.termResult.principalRemarks}</Text>
+                      <View style={{ backgroundColor: '#F0EEFF', borderRadius: 14, padding: 14, borderLeftWidth: 3, borderLeftColor: '#4C3FC4' }}>
+                        <Text style={{ fontSize: 10, fontWeight: '800', color: '#4C3FC4', textTransform: 'uppercase', letterSpacing: 0.5, marginBottom: 6 }}>{"Principal's Remarks"}</Text>
+                        <Text style={{ fontSize: 13, color: '#312a6b', lineHeight: 20 }}>{rc.termResult.principalRemarks}</Text>
                       </View>
                     )}
                   </View>

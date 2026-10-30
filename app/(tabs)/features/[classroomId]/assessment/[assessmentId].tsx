@@ -545,7 +545,7 @@ export default function AssessmentDetailScreen() {
                   style={({ pressed }) => ({ opacity: pressed || publishMutation.isPending ? 0.8 : 1 })}
                 >
                   <View style={{
-                    backgroundColor: '#22c55e',
+                    backgroundColor: '#4C3FC4',
                     borderRadius: 14, paddingVertical: 13,
                     flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: 8,
                   }}>
@@ -1573,7 +1573,7 @@ export default function AssessmentDetailScreen() {
               {/* Submit marking button */}
               <View style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: 16, backgroundColor: '#fff', borderTopWidth: 1, borderTopColor: '#f1f5f9' }}>
                 <Pressable onPress={handleSubmitMarking} disabled={submitMarkingMutation.isPending} style={({ pressed }) => ({ opacity: pressed || submitMarkingMutation.isPending ? 0.8 : 1 })}>
-                  <View style={{ backgroundColor: '#22c55e', borderRadius: 14, paddingVertical: 14, flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: 8 }}>
+                  <View style={{ backgroundColor: '#4C3FC4', borderRadius: 14, paddingVertical: 14, flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: 8 }}>
                     {submitMarkingMutation.isPending
                       ? <ActivityIndicator color="#fff" size="small" />
                       : <Ionicons name="checkmark-done-circle-outline" size={18} color="#fff" />}

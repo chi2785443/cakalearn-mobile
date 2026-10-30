@@ -198,24 +198,21 @@ export default function MobileStudentDashboard({ schoolId, schoolName, firstName
 
         {/* ── Stats ────────────────────────────────────────── */}
         <View style={{ flexDirection: 'row', gap: 10 }}>
-          <GradCard label="My Classes" value={d.counts.totalClassrooms} icon="school" colors={['#4C3FC4', '#6B5FD6']} />
-          <GradCard label="Avg Score" value={`${d.counts.avgScore.toFixed(1)}%`} icon="trending-up" colors={['#F5486A', '#E03058']} sub={`${d.counts.totalScored} scored`} />
+          <GradCard label="My Classes" value={d.counts.totalClassrooms} icon="school" tone="neutral" />
+          <GradCard label="Avg Score" value={`${d.counts.avgScore.toFixed(1)}%`} icon="trending-up" tone="neutral" sub={`${d.counts.totalScored} scored`} />
         </View>
         <View style={{ flexDirection: 'row', gap: 10 }}>
-          <GradCard label="Passed" value={d.counts.passedCount} icon="checkmark-circle" colors={['#10b981', '#059669']} sub={`of ${d.counts.totalScored}`} />
-          <GradCard label="Days Present" value={d.counts.daysAttendedThisMonth} icon="calendar" colors={['#14b8a6', '#0d9488']} sub="this month" />
+          <GradCard label="Passed" value={d.counts.passedCount} icon="checkmark-circle" tone="success" sub={`of ${d.counts.totalScored}`} />
+          <GradCard label="Days Present" value={d.counts.daysAttendedThisMonth} icon="calendar" tone="neutral" sub="this month" />
         </View>
 
         {/* ── Latest result banner ─────────────────────────── */}
         {d.latestResult && (
           <View style={{
             borderRadius: 16, padding: 16, overflow: 'hidden',
-            backgroundColor: '#b45309', flexDirection: 'row', alignItems: 'center', gap: 12,
+            backgroundColor: '#4C3FC4', flexDirection: 'row', alignItems: 'center', gap: 12,
           }}>
-            <View style={{ position: 'absolute', inset: 0, backgroundColor: '#d97706', opacity: 0.5 }} />
-            <View style={{ width: 44, height: 44, borderRadius: 12, backgroundColor: 'rgba(255,255,255,0.2)', alignItems: 'center', justifyContent: 'center' }}>
-              <Ionicons name="trophy" size={20} color="#fff" />
-            </View>
+            <Ionicons name="trophy" size={20} color="#fff" />
             <View className="flex-1">
               <Text style={{ color: 'rgba(255,255,255,0.6)', fontSize: 10, fontWeight: '700', textTransform: 'uppercase', letterSpacing: 1 }}>
                 {TERM_LABELS[d.latestResult.term] ?? d.latestResult.term} · {d.latestResult.academicYear}
@@ -234,9 +231,7 @@ export default function MobileStudentDashboard({ schoolId, schoolName, firstName
         {/* ── Outstanding fees warning ─────────────────────── */}
         {d.counts.outstandingFees > 0 && (
           <View style={{ borderRadius: 14, borderWidth: 2, borderColor: '#fca5a5', backgroundColor: '#fef2f2', padding: 14, flexDirection: 'row', alignItems: 'center', gap: 12 }}>
-            <View style={{ width: 36, height: 36, borderRadius: 10, backgroundColor: '#fee2e2', alignItems: 'center', justifyContent: 'center' }}>
-              <Ionicons name="wallet-outline" size={18} color="#dc2626" />
-            </View>
+            <Ionicons name="wallet-outline" size={22} color="#dc2626" />
             <View className="flex-1">
               <Text className="text-sm font-bold text-red-700">Outstanding Fees</Text>
               <Text className="text-xs text-red-400 mt-0.5">You have an unpaid balance.</Text>

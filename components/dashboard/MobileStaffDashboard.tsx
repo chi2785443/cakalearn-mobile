@@ -74,12 +74,12 @@ export default function MobileStaffDashboard({ schoolId, schoolName, firstName }
 
         {/* ── Stats ────────────────────────────────────────── */}
         <View style={{ flexDirection: 'row', gap: 10 }}>
-          <GradCard label="My Classes" value={d.counts.totalClassrooms} icon="school" colors={['#14b8a6', '#0d9488']} />
-          <GradCard label="My Students" value={d.counts.totalStudents} icon="people" colors={['#4C3FC4', '#6B5FD6']} />
+          <GradCard label="My Classes" value={d.counts.totalClassrooms} icon="school" tone="neutral" />
+          <GradCard label="My Students" value={d.counts.totalStudents} icon="people" tone="neutral" />
         </View>
         <View style={{ flexDirection: 'row', gap: 10 }}>
-          <GradCard label="Assessments" value={d.counts.totalAssessments} icon="clipboard" colors={['#F5486A', '#E03058']} sub={`${d.counts.publishedAssessments} published`} />
-          <GradCard label="Reports" value={d.counts.myReports} icon="document-text" colors={['#f59e0b', '#d97706']} sub={d.counts.pendingReports > 0 ? `${d.counts.pendingReports} pending` : 'all reviewed'} />
+          <GradCard label="Assessments" value={d.counts.totalAssessments} icon="clipboard" tone="neutral" sub={`${d.counts.publishedAssessments} published`} />
+          <GradCard label="Reports" value={d.counts.myReports} icon="document-text" tone={d.counts.pendingReports > 0 ? 'warning' : 'neutral'} sub={d.counts.pendingReports > 0 ? `${d.counts.pendingReports} pending` : 'all reviewed'} />
         </View>
 
         {/* ── Today's schedule ─────────────────────────────── */}

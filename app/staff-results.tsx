@@ -24,24 +24,20 @@ const TERM_LABELS: Record<string, string> = {
 };
 
 function gradeColor(pct: number) {
-  if (pct >= 75) return '#16a34a';
-  if (pct >= 60) return '#2563eb';
+  if (pct >= 60) return '#16a34a';
   if (pct >= 45) return '#d97706';
   return '#dc2626';
 }
 function gradeBg(pct: number) {
-  if (pct >= 75) return '#f0fdf4';
-  if (pct >= 60) return '#eff6ff';
+  if (pct >= 60) return '#f0fdf4';
   if (pct >= 45) return '#fffbeb';
   return '#fff1f2';
 }
 function gradeColorHex(grade: string | null): string {
   if (!grade) return '#374151';
   const g = grade.toUpperCase();
-  if (g.startsWith('A')) return '#047857';
-  if (g.startsWith('B')) return '#1d4ed8';
+  if (g.startsWith('A') || g.startsWith('B')) return '#047857';
   if (g.startsWith('C')) return '#b45309';
-  if (g.startsWith('D')) return '#c2410c';
   return '#dc2626';
 }
 function fmtScore(n: number | null | undefined): string {
@@ -395,15 +391,15 @@ function ReportCardModal({
                 {(tr?.teacherRemarks || tr?.principalRemarks) && (
                   <View style={{ gap: 10 }}>
                     {tr?.teacherRemarks && (
-                      <View style={{ backgroundColor: '#eff6ff', borderRadius: 14, padding: 14, borderLeftWidth: 3, borderLeftColor: '#3b82f6' }}>
-                        <Text style={{ fontSize: 10, fontWeight: '800', color: '#1d4ed8', textTransform: 'uppercase', letterSpacing: 0.5, marginBottom: 6 }}>{"Class Teacher's Remarks"}</Text>
-                        <Text style={{ fontSize: 13, color: '#1e3a8a', lineHeight: 20 }}>{tr.teacherRemarks}</Text>
+                      <View style={{ backgroundColor: '#F0EEFF', borderRadius: 14, padding: 14, borderLeftWidth: 3, borderLeftColor: '#4C3FC4' }}>
+                        <Text style={{ fontSize: 10, fontWeight: '800', color: '#4C3FC4', textTransform: 'uppercase', letterSpacing: 0.5, marginBottom: 6 }}>{"Class Teacher's Remarks"}</Text>
+                        <Text style={{ fontSize: 13, color: '#312a6b', lineHeight: 20 }}>{tr.teacherRemarks}</Text>
                       </View>
                     )}
                     {tr?.principalRemarks && (
-                      <View style={{ backgroundColor: '#faf5ff', borderRadius: 14, padding: 14, borderLeftWidth: 3, borderLeftColor: '#7c3aed' }}>
-                        <Text style={{ fontSize: 10, fontWeight: '800', color: '#7c3aed', textTransform: 'uppercase', letterSpacing: 0.5, marginBottom: 6 }}>{"Principal's Remarks"}</Text>
-                        <Text style={{ fontSize: 13, color: '#4c1d95', lineHeight: 20 }}>{tr.principalRemarks}</Text>
+                      <View style={{ backgroundColor: '#F0EEFF', borderRadius: 14, padding: 14, borderLeftWidth: 3, borderLeftColor: '#4C3FC4' }}>
+                        <Text style={{ fontSize: 10, fontWeight: '800', color: '#4C3FC4', textTransform: 'uppercase', letterSpacing: 0.5, marginBottom: 6 }}>{"Principal's Remarks"}</Text>
+                        <Text style={{ fontSize: 13, color: '#312a6b', lineHeight: 20 }}>{tr.principalRemarks}</Text>
                       </View>
                     )}
                   </View>

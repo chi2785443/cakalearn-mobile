@@ -70,12 +70,12 @@ export default function MobileAdminDashboard({ schoolId, schoolName, firstName }
 
         {/* ── 4 Stat cards ─────────────────────────────────── */}
         <View style={{ flexDirection: 'row', gap: 10 }}>
-          <GradCard label="Students" value={d.counts.totalStudents} icon="people" colors={['#4C3FC4', '#6B5FD6']} />
-          <GradCard label="Staff" value={d.counts.totalStaff} icon="briefcase" colors={['#F5486A', '#E03058']} />
+          <GradCard label="Students" value={d.counts.totalStudents} icon="people" tone="neutral" />
+          <GradCard label="Staff" value={d.counts.totalStaff} icon="briefcase" tone="neutral" />
         </View>
         <View style={{ flexDirection: 'row', gap: 10 }}>
-          <GradCard label="Classrooms" value={d.counts.totalClassrooms} icon="school" colors={['#f59e0b', '#d97706']} />
-          <GradCard label="Subjects" value={d.counts.totalSubjects} icon="book" colors={['#14b8a6', '#0d9488']} />
+          <GradCard label="Classrooms" value={d.counts.totalClassrooms} icon="school" tone="neutral" />
+          <GradCard label="Subjects" value={d.counts.totalSubjects} icon="book" tone="neutral" />
         </View>
 
         {/* ── Attendance today ─────────────────────────────── */}

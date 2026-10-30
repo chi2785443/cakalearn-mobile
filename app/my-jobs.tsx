@@ -1300,9 +1300,8 @@ function StaffJobCard({ job, onPress }: { job: Job; onPress: () => void }) {
       ? { label: 'Deadline passed', bg: '#fef3c7', text: '#b45309' }
       : { label: 'Open', bg: '#dcfce7', text: '#15803d' };
 
-  const barColor = statusClosed ? '#ef4444' : deadlinePassed ? '#f59e0b' : '#0ea5e9';
-  const iconBg   = statusClosed ? '#fee2e2' : deadlinePassed ? '#fef3c7' : '#e0f2fe';
-  const iconColor = statusClosed ? '#ef4444' : deadlinePassed ? '#d97706' : '#0284c7';
+  const barColor = statusClosed ? '#ef4444' : deadlinePassed ? '#f59e0b' : '#16a34a';
+  const iconColor = statusClosed ? '#ef4444' : deadlinePassed ? '#d97706' : '#16a34a';
 
   return (
     <Pressable onPress={onPress} style={({ pressed }) => ({ opacity: pressed ? 0.85 : 1 })}>
@@ -1314,12 +1313,10 @@ function StaffJobCard({ job, onPress }: { job: Job; onPress: () => void }) {
         <View style={{ height: 3, backgroundColor: barColor }} />
         <View style={{ padding: 16 }}>
           <View style={{ flexDirection: 'row', alignItems: 'flex-start', gap: 12 }}>
-            <View style={{ width: 44, height: 44, borderRadius: 14, backgroundColor: iconBg, alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-              <Ionicons name="briefcase-outline" size={20} color={iconColor} />
-            </View>
+            <Ionicons name="briefcase-outline" size={22} color={iconColor} style={{ flexShrink: 0, marginTop: 2 }} />
             <View style={{ flex: 1 }}>
               <Text style={{ fontSize: 15, fontWeight: '800', color: '#0f172a' }} numberOfLines={1}>{job.title}</Text>
-              <Text style={{ fontSize: 13, color: '#0ea5e9', fontWeight: '600', marginTop: 2 }} numberOfLines={1}>{job.school?.name}</Text>
+              <Text style={{ fontSize: 13, color: '#6b7280', fontWeight: '600', marginTop: 2 }} numberOfLines={1}>{job.school?.name}</Text>
             </View>
             <View style={{ backgroundColor: badge.bg, borderRadius: 8, paddingHorizontal: 8, paddingVertical: 4, flexShrink: 0 }}>
               <Text style={{ fontSize: 11, fontWeight: '800', color: badge.text }}>{badge.label}</Text>

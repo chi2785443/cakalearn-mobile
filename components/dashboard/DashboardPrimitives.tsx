@@ -27,26 +27,28 @@ export function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
-/* ── Bold gradient stat card ────────────────────────────── */
+/* ── Stat card tones ─────────────────────────────────────
+ * Only 4 tones exist, each with a fixed meaning. 'neutral' is the
+ * default for plain counts (not good/bad) — do not add new hexes here.
+ */
+const GRAD_TONES = {
+  neutral: '#4C3FC4',  // brand indigo — informational count
+  success: '#10b981',  // good
+  warning: '#f59e0b',  // attention
+  danger: '#F5486A',   // bad — brand accent
+} as const;
+
 export function GradCard({
-  label, value, sub, icon, colors,
+  label, value, sub, icon, tone = 'neutral',
 }: {
   label: string; value: string | number; sub?: string;
   icon: React.ComponentProps<typeof Ionicons>['name'];
-  colors: [string, string]; // [from, to] bg colors as inline styles
+  tone?: keyof typeof GRAD_TONES;
 }) {
+  const bg = GRAD_TONES[tone];
   return (
-    <View
-      style={{ backgroundColor: colors[0], borderRadius: 16, padding: 14, flex: 1 }}
-    >
-      {/* Icon */}
-      <View style={{
-        width: 32, height: 32, borderRadius: 10,
-        backgroundColor: 'rgba(255,255,255,0.2)',
-        alignItems: 'center', justifyContent: 'center', marginBottom: 10,
-      }}>
-        <Ionicons name={icon} size={16} color="#fff" />
-      </View>
+    <View style={{ backgroundColor: bg, borderRadius: 16, padding: 14, flex: 1 }}>
+      <Ionicons name={icon} size={16} color="rgba(255,255,255,0.85)" style={{ marginBottom: 10 }} />
       <Text style={{ fontSize: 22, fontWeight: '900', color: '#fff', lineHeight: 26 }}>
         {value}
       </Text>
