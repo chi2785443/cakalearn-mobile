@@ -2,6 +2,7 @@ import React, { useEffect, useState, useMemo } from 'react';
 import {
   Modal, View, Text, ScrollView, Pressable, TextInput, ActivityIndicator,
 } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-controller';
 import { Ionicons } from '@expo/vector-icons';
 import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -499,7 +500,7 @@ export default function CreateAssessmentSheet({ visible, onClose, classrooms, sc
             </Pressable>
           </View>
 
-          <ScrollView showsVerticalScrollIndicator={false} keyboardShouldPersistTaps="handled" contentContainerStyle={{ padding: 20, gap: 18, paddingBottom: 48 }}>
+          <KeyboardAwareScrollView bottomOffset={24} showsVerticalScrollIndicator={false} keyboardShouldPersistTaps="handled" contentContainerStyle={{ padding: 20, gap: 18, paddingBottom: 48 }}>
 
             {/* Classroom (optional) */}
             <Field label="Classroom (optional)">
@@ -737,7 +738,7 @@ export default function CreateAssessmentSheet({ visible, onClose, classrooms, sc
                 </Text>
               </View>
             </Pressable>
-          </ScrollView>
+          </KeyboardAwareScrollView>
 
           {/* All nested pickers rendered inside the main modal */}
           <ClassroomPickerModal

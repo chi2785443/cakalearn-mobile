@@ -3,6 +3,7 @@ import {
   View, Text, Pressable, Modal, ScrollView, Animated,
   Dimensions, TextInput, ActivityIndicator, Linking, Platform,
 } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-controller';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { toast } from '@/components/ui/Toast';
 import { Ionicons } from '@expo/vector-icons';
@@ -202,9 +203,9 @@ function FormSection({ onBack, title, children }: {
         </Pressable>
         <Text style={{ fontSize: 18, fontWeight: '900', color: '#0f172a', flex: 1 }}>{title}</Text>
       </View>
-      <ScrollView keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false} contentContainerStyle={{ padding: 20, gap: 16, paddingBottom: 40 }}>
+      <KeyboardAwareScrollView bottomOffset={24} keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false} contentContainerStyle={{ padding: 20, gap: 16, paddingBottom: 40 }}>
         {children}
-      </ScrollView>
+      </KeyboardAwareScrollView>
     </>
   );
 }

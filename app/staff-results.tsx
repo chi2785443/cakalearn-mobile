@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useCallback } from 'react';
 import { View, Text, ScrollView, Pressable, Modal, ActivityIndicator, Alert } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-controller';
 import { Image } from 'expo-image';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
@@ -207,7 +208,7 @@ function ReportCardModal({
   return (
     <Modal visible animationType="slide" presentationStyle="pageSheet" onRequestClose={onClose}>
       <SafeAreaView style={{ flex: 1, backgroundColor: '#f3f4f6' }} edges={['top', 'bottom']}>
-        <ScrollView showsVerticalScrollIndicator={false} keyboardShouldPersistTaps="handled" automaticallyAdjustKeyboardInsets contentContainerStyle={{ paddingBottom: 40 }}>
+        <KeyboardAwareScrollView bottomOffset={24} showsVerticalScrollIndicator={false} keyboardShouldPersistTaps="handled" contentContainerStyle={{ paddingBottom: 40 }}>
 
           {/* School header */}
           <View style={{ backgroundColor: '#4f46e5', paddingHorizontal: 20, paddingTop: 16, paddingBottom: 24 }}>
@@ -424,7 +425,7 @@ function ReportCardModal({
               </>
             )}
           </View>
-        </ScrollView>
+        </KeyboardAwareScrollView>
       </SafeAreaView>
     </Modal>
   );

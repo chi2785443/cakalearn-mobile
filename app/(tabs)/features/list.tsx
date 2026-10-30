@@ -2,6 +2,7 @@ import React, { useState, useMemo, useCallback } from 'react';
 import {
   View, Text, ScrollView, FlatList, Pressable, TextInput, RefreshControl, Modal, ActivityIndicator,
 } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-controller';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
@@ -153,7 +154,7 @@ function CreateClassroomSheet({ visible, onClose, schoolId }: { visible: boolean
           <Pressable onPress={onClose}><Ionicons name="close" size={22} color="#374151" /></Pressable>
           <Text style={{ fontSize: 17, fontWeight: '900', color: '#0f172a', flex: 1 }}>New Classroom</Text>
         </View>
-        <ScrollView contentContainerStyle={{ padding: 16, gap: 16, paddingBottom: 40 }}>
+        <KeyboardAwareScrollView bottomOffset={24} contentContainerStyle={{ padding: 16, gap: 16, paddingBottom: 40 }}>
           <View style={{ gap: 6 }}>
             <Text style={{ fontSize: 13, fontWeight: '700', color: '#374151' }}>Name *</Text>
             <TextInput value={name} onChangeText={setName} placeholder="e.g. JSS1A" placeholderTextColor="#9ca3af" style={inputStyle} />
@@ -202,7 +203,7 @@ function CreateClassroomSheet({ visible, onClose, schoolId }: { visible: boolean
               <Text style={{ color: '#fff', fontSize: 15, fontWeight: '900' }}>{mutation.isPending ? 'Creating…' : 'Create Classroom'}</Text>
             </View>
           </Pressable>
-        </ScrollView>
+        </KeyboardAwareScrollView>
       </SafeAreaView>
     </Modal>
   );

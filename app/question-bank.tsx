@@ -3,6 +3,7 @@ import {
   View, Text, ScrollView, Pressable, ActivityIndicator,
   Modal, TextInput, RefreshControl, Image, Alert, StyleSheet,
 } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-controller';
 import * as ImagePicker from 'expo-image-picker';
 import { toast } from '@/components/ui/Toast';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -200,7 +201,7 @@ function CreateModal({
             </Pressable>
           </View>
 
-          <ScrollView keyboardShouldPersistTaps="handled" contentContainerStyle={{ padding: 20, gap: 16, paddingBottom: 40 }}>
+          <KeyboardAwareScrollView bottomOffset={24} keyboardShouldPersistTaps="handled" contentContainerStyle={{ padding: 20, gap: 16, paddingBottom: 40 }}>
             {/* Question text */}
             <Field label="Question" required>
               <TextInput value={questionText} onChangeText={setQuestionText} placeholder="Enter question text..." placeholderTextColor="#9ca3af" multiline numberOfLines={3} textAlignVertical="top" style={[inputStyle, { minHeight: 80 }]} />
@@ -310,7 +311,7 @@ function CreateModal({
                 </Text>
               </View>
             </Pressable>
-          </ScrollView>
+          </KeyboardAwareScrollView>
         </View>
       </View>
     </Modal>

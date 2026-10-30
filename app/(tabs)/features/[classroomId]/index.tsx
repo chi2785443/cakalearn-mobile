@@ -3,6 +3,7 @@ import {
   View, Text, ScrollView, Pressable, ActivityIndicator, Alert, RefreshControl,
   Modal, TextInput,
 } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-controller';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { useLocalSearchParams, useRouter } from 'expo-router';
@@ -701,7 +702,7 @@ export default function ClassroomDetailScreen() {
             <Pressable onPress={() => setShowAddPeriod(false)}><Ionicons name="close" size={22} color="#374151" /></Pressable>
             <Text style={{ fontSize: 17, fontWeight: '900', color: '#0f172a', flex: 1 }}>Add Period</Text>
           </View>
-          <ScrollView contentContainerStyle={{ padding: 16, gap: 16, paddingBottom: 40 }}>
+          <KeyboardAwareScrollView bottomOffset={24} contentContainerStyle={{ padding: 16, gap: 16, paddingBottom: 40 }}>
             {/* Day */}
             <View style={{ gap: 6 }}>
               <Text style={{ fontSize: 13, fontWeight: '700', color: '#374151' }}>Day *</Text>
@@ -817,7 +818,7 @@ export default function ClassroomDetailScreen() {
                 <Text style={{ color: '#fff', fontSize: 15, fontWeight: '900' }}>{createPeriodMutation.isPending ? 'Adding…' : 'Add Period'}</Text>
               </View>
             </Pressable>
-          </ScrollView>
+          </KeyboardAwareScrollView>
 
           {/* Time pickers — nested inside this modal */}
           <TimePickerModal visible={timePickerFor === 'start'} value={periodStart} label="Start Time" onSelect={setPeriodStart} onClose={() => setTimePickerFor(null)} />
