@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import {
   View, Text, ScrollView, Pressable, TextInput,
-  ActivityIndicator, KeyboardAvoidingView, Platform, Modal,
+  ActivityIndicator, Modal,
 } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-controller';
 import { toast } from '@/components/ui/Toast';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
@@ -483,7 +484,7 @@ function NewEnquiryFormView({
   };
 
   return (
-    <KeyboardAvoidingView style={{ flex: 1, backgroundColor: '#f8fafc' }} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
+    <View style={{ flex: 1, backgroundColor: '#f8fafc' }}>
       <CategoryPickerModal
         visible={showCategoryModal}
         selected={category}
@@ -508,7 +509,7 @@ function NewEnquiryFormView({
         </View>
       </View>
 
-      <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ padding: 16, gap: 16, paddingBottom: 40 }}>
+      <KeyboardAwareScrollView bottomOffset={24} showsVerticalScrollIndicator={false} contentContainerStyle={{ padding: 16, gap: 16, paddingBottom: 40 }}>
         {/* School strip */}
         {school && (
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12, backgroundColor: '#fff', borderRadius: 14, padding: 14, borderWidth: 1, borderColor: '#e5e7eb' }}>
@@ -665,8 +666,8 @@ function NewEnquiryFormView({
             </Text>
           </View>
         </Pressable>
-      </ScrollView>
-    </KeyboardAvoidingView>
+      </KeyboardAwareScrollView>
+    </View>
   );
 }
 

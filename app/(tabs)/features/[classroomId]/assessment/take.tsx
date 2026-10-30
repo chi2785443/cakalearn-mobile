@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import {
   View, Text, ScrollView, Pressable, TextInput, Alert,
-  ActivityIndicator, KeyboardAvoidingView, Platform, Animated, Easing, AppState,
+  ActivityIndicator, Animated, Easing, AppState,
 } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-controller';
 import { Image } from 'expo-image';
 import { CameraView, useCameraPermissions, useMicrophonePermissions } from 'expo-camera';
 import { toast } from '@/components/ui/Toast';
@@ -469,17 +470,13 @@ export default function TakeAssessmentScreen() {
       <ProgressBar current={answeredCount} total={totalQ} color="#6366f1" />
 
       {/* ── Content ──────────────────────────────────────────────── */}
-      <KeyboardAvoidingView
+      <KeyboardAwareScrollView
+        bottomOffset={insets.top + 60}
+        showsVerticalScrollIndicator={false}
+        keyboardShouldPersistTaps="handled"
+        contentContainerStyle={{ paddingHorizontal: 16, paddingTop: 20, paddingBottom: cameraGranted ? PIP_HEIGHT + 32 : 16, gap: 18 }}
         style={{ flex: 1 }}
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        keyboardVerticalOffset={insets.top + 60}
       >
-        <ScrollView
-          showsVerticalScrollIndicator={false}
-          keyboardShouldPersistTaps="handled"
-          contentContainerStyle={{ paddingHorizontal: 16, paddingTop: 20, paddingBottom: cameraGranted ? PIP_HEIGHT + 32 : 16, gap: 18 }}
-          style={{ flex: 1 }}
-        >
           {/* Marks + type badge */}
           {currentQ?.question?.marks !== undefined && (
             <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, flexWrap: 'wrap' }}>
@@ -617,8 +614,7 @@ export default function TakeAssessmentScreen() {
               </View>
             </ScrollView>
           </View>
-        </ScrollView>
-      </KeyboardAvoidingView>
+      </KeyboardAwareScrollView>
 
       {/* ── Bottom nav bar ───────────────────────────────────────── */}
       <View style={{

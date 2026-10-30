@@ -1,8 +1,8 @@
 import React, { useState, useMemo } from 'react';
 import {
   View, Text, ScrollView, Pressable, TouchableOpacity, Alert, ActivityIndicator, TextInput, Modal,
-  KeyboardAvoidingView, Platform,
 } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-controller';
 import { useVideoPlayer, VideoView } from 'expo-video';
 import * as WebBrowser from 'expo-web-browser';
 import { toast } from '@/components/ui/Toast';
@@ -1265,8 +1265,7 @@ export default function AssessmentDetailScreen() {
             </Pressable>
           </View>
 
-          <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
-            <ScrollView keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false} contentContainerStyle={{ padding: 16, gap: 14, paddingBottom: 40 }}>
+          <KeyboardAwareScrollView bottomOffset={24} keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false} contentContainerStyle={{ padding: 16, gap: 14, paddingBottom: 40 }}>
 
               {[
                 { label: 'Title', value: editTitle, onChange: setEditTitle, placeholder: 'Assessment title', multiline: false },
@@ -1345,8 +1344,7 @@ export default function AssessmentDetailScreen() {
                 ))}
               </View>
 
-            </ScrollView>
-          </KeyboardAvoidingView>
+            </KeyboardAwareScrollView>
         </SafeAreaView>
       </Modal>
 
@@ -1383,8 +1381,8 @@ export default function AssessmentDetailScreen() {
               <Text style={{ fontSize: 13, color: '#9ca3af' }}>Loading answers…</Text>
             </View>
           ) : (
-            <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
-              <ScrollView keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false} contentContainerStyle={{ padding: 16, gap: 14, paddingBottom: 120 }}>
+            <View style={{ flex: 1 }}>
+              <KeyboardAwareScrollView bottomOffset={24} keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false} contentContainerStyle={{ padding: 16, gap: 14, paddingBottom: 120 }}>
 
                 {/* Stats strip */}
                 {markingDetails?.statistics && (
@@ -1568,7 +1566,7 @@ export default function AssessmentDetailScreen() {
                   />
                 </View>
 
-              </ScrollView>
+              </KeyboardAwareScrollView>
 
               {/* Submit marking button */}
               <View style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: 16, backgroundColor: '#fff', borderTopWidth: 1, borderTopColor: '#f1f5f9' }}>
@@ -1583,7 +1581,7 @@ export default function AssessmentDetailScreen() {
                   </View>
                 </Pressable>
               </View>
-            </KeyboardAvoidingView>
+            </View>
           )}
         </SafeAreaView>
       </Modal>

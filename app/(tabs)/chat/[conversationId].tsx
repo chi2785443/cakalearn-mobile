@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import {
-  View, Text, FlatList, Pressable, Alert, ActivityIndicator, KeyboardAvoidingView, Platform,
+  View, Text, FlatList, Pressable, Alert, ActivityIndicator,
 } from 'react-native';
+import { KeyboardStickyView } from 'react-native-keyboard-controller';
 import { toast } from '@/components/ui/Toast';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
@@ -227,11 +228,7 @@ export default function ChatRoomScreen() {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: '#f0f4fb' }} edges={['top', 'bottom']}>
-      <KeyboardAvoidingView
-        style={{ flex: 1 }}
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        keyboardVerticalOffset={0}
-      >
+      <View style={{ flex: 1 }}>
 
         {/* ── Header ───────────────────────────────────────────── */}
         <View style={{
@@ -293,12 +290,14 @@ export default function ChatRoomScreen() {
         />
 
         {/* ── Input ───────────────────────────────────────────── */}
-        <MessageInput
-          onSend={handleSend}
-          sending={sendMutation.isPending}
-          disabled={sendMutation.isPending}
-        />
-      </KeyboardAvoidingView>
+        <KeyboardStickyView>
+          <MessageInput
+            onSend={handleSend}
+            sending={sendMutation.isPending}
+            disabled={sendMutation.isPending}
+          />
+        </KeyboardStickyView>
+      </View>
     </SafeAreaView>
   );
 }

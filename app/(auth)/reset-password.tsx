@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, ScrollView, KeyboardAvoidingView, Platform } from 'react-native';
+import { View, Text } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-controller';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useLocalSearchParams } from 'expo-router';
 import { ResetPasswordForm } from '@/components/auth/ResetPasswordForm';
@@ -9,16 +10,13 @@ export default function ResetPasswordScreen() {
 
   return (
     <SafeAreaView className="flex-1 bg-white">
-      <KeyboardAvoidingView
+      <KeyboardAwareScrollView
         className="flex-1"
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        contentContainerStyle={{ flexGrow: 1 }}
+        keyboardShouldPersistTaps="handled"
+        showsVerticalScrollIndicator={false}
+        bottomOffset={24}
       >
-        <ScrollView
-          className="flex-1"
-          contentContainerStyle={{ flexGrow: 1 }}
-          keyboardShouldPersistTaps="handled"
-          showsVerticalScrollIndicator={false}
-        >
           <View className="flex-1 px-6 py-10 gap-8 justify-center">
             <View className="gap-1">
               <Text className="text-2xl font-bold text-brand-dark">Reset password</Text>
@@ -27,8 +25,7 @@ export default function ResetPasswordScreen() {
 
             <ResetPasswordForm token={token ?? ''} />
           </View>
-        </ScrollView>
-      </KeyboardAvoidingView>
+      </KeyboardAwareScrollView>
     </SafeAreaView>
   );
 }

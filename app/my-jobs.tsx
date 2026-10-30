@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import {
   View, Text, ScrollView, Pressable, TextInput,
-  ActivityIndicator, Alert, KeyboardAvoidingView, Platform, Linking, Modal,
+  ActivityIndicator, Alert, Linking, Modal,
 } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-controller';
 import { toast } from '@/components/ui/Toast';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
@@ -374,7 +375,7 @@ function AdminApplicationDetailView({ application, schoolId, onBack, onRefresh, 
   const canSchedule = ['shortlisted', 'under_review', 'interview_scheduled', 'interviewed'].includes(application.status);
 
   return (
-    <KeyboardAvoidingView style={{ flex: 1, backgroundColor: '#f1f5f9' }} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
+    <View style={{ flex: 1, backgroundColor: '#f1f5f9' }}>
       {/* Header */}
       <View style={{ backgroundColor: ADMIN_BG, paddingHorizontal: 16, paddingTop: 16, paddingBottom: 22 }}>
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: 16 }}>
@@ -404,7 +405,7 @@ function AdminApplicationDetailView({ application, schoolId, onBack, onRefresh, 
         </View>
       </View>
 
-      <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 48 }}>
+      <KeyboardAwareScrollView bottomOffset={24} showsVerticalScrollIndicator={false} contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 48 }}>
 
         {/* Meta chips */}
         <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8 }}>
@@ -578,8 +579,8 @@ function AdminApplicationDetailView({ application, schoolId, onBack, onRefresh, 
             </View>
           </View>
         )}
-      </ScrollView>
-    </KeyboardAvoidingView>
+      </KeyboardAwareScrollView>
+    </View>
   );
 }
 
@@ -627,7 +628,7 @@ function ScheduleInterviewForm({ application, schoolId, onBack, onDone }: {
     : 'Applicant';
 
   return (
-    <KeyboardAvoidingView style={{ flex: 1, backgroundColor: '#f1f5f9' }} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
+    <View style={{ flex: 1, backgroundColor: '#f1f5f9' }}>
       <View style={{ backgroundColor: ADMIN_BG, paddingHorizontal: 16, paddingTop: 16, paddingBottom: 20 }}>
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
           <Pressable onPress={onBack} style={{ width: 36, height: 36, borderRadius: 12, backgroundColor: 'rgba(255,255,255,0.07)', alignItems: 'center', justifyContent: 'center' }}>
@@ -639,7 +640,7 @@ function ScheduleInterviewForm({ application, schoolId, onBack, onDone }: {
           </View>
         </View>
       </View>
-      <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ padding: 16, gap: 14, paddingBottom: 40 }}>
+      <KeyboardAwareScrollView bottomOffset={24} showsVerticalScrollIndicator={false} contentContainerStyle={{ padding: 16, gap: 14, paddingBottom: 40 }}>
 
         <View>
           <FieldLabel label="Interview Type" required />
@@ -691,8 +692,8 @@ function ScheduleInterviewForm({ application, schoolId, onBack, onDone }: {
             <Text style={{ color: '#fff', fontSize: 16, fontWeight: '900' }}>{isPending ? 'Scheduling…' : 'Schedule Interview'}</Text>
           </View>
         </Pressable>
-      </ScrollView>
-    </KeyboardAvoidingView>
+      </KeyboardAwareScrollView>
+    </View>
   );
 }
 
@@ -860,7 +861,7 @@ function CreateJobForm({ schoolId, editing, onBack, onDone }: {
   };
 
   return (
-    <KeyboardAvoidingView style={{ flex: 1, backgroundColor: '#f1f5f9' }} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
+    <View style={{ flex: 1, backgroundColor: '#f1f5f9' }}>
       <View style={{ backgroundColor: ADMIN_BG, paddingHorizontal: 16, paddingTop: 16, paddingBottom: 20 }}>
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
           <Pressable onPress={onBack} style={{ width: 36, height: 36, borderRadius: 12, backgroundColor: 'rgba(255,255,255,0.07)', alignItems: 'center', justifyContent: 'center' }}>
@@ -872,7 +873,7 @@ function CreateJobForm({ schoolId, editing, onBack, onDone }: {
           </View>
         </View>
       </View>
-      <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ padding: 16, gap: 14, paddingBottom: 40 }}>
+      <KeyboardAwareScrollView bottomOffset={24} showsVerticalScrollIndicator={false} contentContainerStyle={{ padding: 16, gap: 14, paddingBottom: 40 }}>
 
         <View>
           <FieldLabel label="Job Title" required />
@@ -998,8 +999,8 @@ function CreateJobForm({ schoolId, editing, onBack, onDone }: {
             <Text style={{ color: '#fff', fontSize: 16, fontWeight: '900' }}>{isPending ? 'Saving…' : editing ? 'Save Changes' : 'Post Job'}</Text>
           </View>
         </Pressable>
-      </ScrollView>
-    </KeyboardAvoidingView>
+      </KeyboardAwareScrollView>
+    </View>
   );
 }
 
@@ -1618,7 +1619,7 @@ function StaffApplyFormView({ job, onBack, onDone }: { job: Job; onBack: () => v
   };
 
   return (
-    <KeyboardAvoidingView style={{ flex: 1, backgroundColor: '#f8fafc' }} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
+    <View style={{ flex: 1, backgroundColor: '#f8fafc' }}>
       <View style={{ backgroundColor: STAFF_BG, paddingHorizontal: 16, paddingTop: 16, paddingBottom: 20 }}>
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
           <Pressable onPress={onBack} style={{ width: 36, height: 36, borderRadius: 12, backgroundColor: 'rgba(255,255,255,0.08)', alignItems: 'center', justifyContent: 'center' }}>
@@ -1630,7 +1631,7 @@ function StaffApplyFormView({ job, onBack, onDone }: { job: Job; onBack: () => v
           </View>
         </View>
       </View>
-      <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ padding: 16, gap: 14, paddingBottom: 40 }}>
+      <KeyboardAwareScrollView bottomOffset={24} showsVerticalScrollIndicator={false} contentContainerStyle={{ padding: 16, gap: 14, paddingBottom: 40 }}>
         <View>
           <FieldLabel label="Cover Letter" required />
           <TextInput value={coverLetter} onChangeText={setCoverLetter} placeholder="Tell them why you're the right fit…" placeholderTextColor="#9ca3af" multiline numberOfLines={6} textAlignVertical="top" style={[inputStyle, { minHeight: 130 }]} />
@@ -1669,8 +1670,8 @@ function StaffApplyFormView({ job, onBack, onDone }: { job: Job; onBack: () => v
             <Text style={{ color: '#fff', fontSize: 16, fontWeight: '900' }}>{isPending ? 'Submitting…' : 'Submit Application'}</Text>
           </View>
         </Pressable>
-      </ScrollView>
-    </KeyboardAvoidingView>
+      </KeyboardAwareScrollView>
+    </View>
   );
 }
 

@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, ScrollView, KeyboardAvoidingView, Platform } from 'react-native';
+import { View, Text } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-controller';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Image } from 'expo-image';
 import { SignInForm } from '@/components/auth/SignInForm';
@@ -7,16 +8,13 @@ import { SignInForm } from '@/components/auth/SignInForm';
 export default function SignInScreen() {
   return (
     <SafeAreaView className="flex-1 bg-white">
-      <KeyboardAvoidingView
+      <KeyboardAwareScrollView
         className="flex-1"
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        contentContainerStyle={{ flexGrow: 1 }}
+        keyboardShouldPersistTaps="handled"
+        showsVerticalScrollIndicator={false}
+        bottomOffset={24}
       >
-        <ScrollView
-          className="flex-1"
-          contentContainerStyle={{ flexGrow: 1 }}
-          keyboardShouldPersistTaps="handled"
-          showsVerticalScrollIndicator={false}
-        >
           {/* Purple wave hero */}
           <View style={{
             backgroundColor: '#4C3FC4',
@@ -46,8 +44,7 @@ export default function SignInScreen() {
           <View style={{ paddingHorizontal: 24, paddingTop: 36, paddingBottom: 40 }}>
             <SignInForm />
           </View>
-        </ScrollView>
-      </KeyboardAvoidingView>
+      </KeyboardAwareScrollView>
     </SafeAreaView>
   );
 }

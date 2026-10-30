@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import {
   View, Text, ScrollView, Pressable, TextInput,
-  ActivityIndicator, KeyboardAvoidingView, Platform, Linking, Switch,
+  ActivityIndicator, Linking, Switch,
 } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-controller';
 import { Image } from 'expo-image';
 import { toast } from '@/components/ui/Toast';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -190,7 +191,7 @@ function AdminDetailView({
   ];
 
   return (
-    <KeyboardAvoidingView style={{ flex: 1, backgroundColor: '#f1f5f9' }} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
+    <View style={{ flex: 1, backgroundColor: '#f1f5f9' }}>
       {/* Header */}
       <View style={{ backgroundColor: '#0a1628', paddingHorizontal: 16, paddingTop: 16, paddingBottom: 24, borderBottomLeftRadius: 28, borderBottomRightRadius: 28 }}>
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: 16 }}>
@@ -228,7 +229,7 @@ function AdminDetailView({
         </View>
       </View>
 
-      <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 48 }}>
+      <KeyboardAwareScrollView bottomOffset={24} showsVerticalScrollIndicator={false} contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 48 }}>
 
         {/* Applied date */}
         <View style={{ flexDirection: 'row', gap: 8 }}>
@@ -406,8 +407,8 @@ function AdminDetailView({
             Last reviewed by {enrollment.reviewedBy.firstName} {enrollment.reviewedBy.lastName}
           </Text>
         )}
-      </ScrollView>
-    </KeyboardAvoidingView>
+      </KeyboardAwareScrollView>
+    </View>
   );
 }
 
@@ -818,7 +819,7 @@ function ApplyFormView({ school, onBack, onDone }: { school: School; onBack: () 
   };
 
   return (
-    <KeyboardAvoidingView style={{ flex: 1, backgroundColor: '#f1f5f9' }} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
+    <View style={{ flex: 1, backgroundColor: '#f1f5f9' }}>
       <View style={{ backgroundColor: '#0c2030', paddingHorizontal: 16, paddingTop: 16, paddingBottom: 24, borderBottomLeftRadius: 28, borderBottomRightRadius: 28 }}>
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
           <Pressable onPress={onBack} style={{ width: 36, height: 36, borderRadius: 12, backgroundColor: 'rgba(255,255,255,0.08)', alignItems: 'center', justifyContent: 'center' }}>
@@ -831,7 +832,7 @@ function ApplyFormView({ school, onBack, onDone }: { school: School; onBack: () 
         </View>
       </View>
 
-      <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ padding: 16, gap: 14, paddingBottom: 40 }}>
+      <KeyboardAwareScrollView bottomOffset={24} showsVerticalScrollIndicator={false} contentContainerStyle={{ padding: 16, gap: 14, paddingBottom: 40 }}>
         {/* Program field */}
         <FormFieldUser label="Program / Training Interest" required>
           <TextInput value={trainingInterest} onChangeText={setTrainingInterest} placeholder="e.g. Senior Secondary Science…" placeholderTextColor="#cbd5e1" style={applyInputStyle} />
@@ -872,8 +873,8 @@ function ApplyFormView({ school, onBack, onDone }: { school: School; onBack: () 
             <Text style={{ color: '#fff', fontSize: 16, fontWeight: '900' }}>{isPending ? 'Submitting…' : 'Submit Application'}</Text>
           </View>
         </Pressable>
-      </ScrollView>
-    </KeyboardAvoidingView>
+      </KeyboardAwareScrollView>
+    </View>
   );
 }
 

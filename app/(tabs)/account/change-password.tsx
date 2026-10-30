@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import {
-  View, Text, ScrollView, Pressable, TextInput,
-  ActivityIndicator, KeyboardAvoidingView, Platform,
+  View, Text, Pressable, TextInput,
+  ActivityIndicator,
 } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-controller';
 import { toast } from '@/components/ui/Toast';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
@@ -108,7 +109,7 @@ export default function ChangePasswordScreen() {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: '#f8fafc' }} edges={['top']}>
-      <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
+      <View style={{ flex: 1 }}>
 
         {/* ── Hero header ── */}
         <View style={{
@@ -157,7 +158,8 @@ export default function ChangePasswordScreen() {
 
         </View>
 
-        <ScrollView
+        <KeyboardAwareScrollView
+          bottomOffset={24}
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{ padding: 16, gap: 14, paddingBottom: 40 }}
           keyboardShouldPersistTaps="handled"
@@ -308,8 +310,8 @@ export default function ChangePasswordScreen() {
             </View>
           </Pressable>
 
-        </ScrollView>
-      </KeyboardAvoidingView>
+        </KeyboardAwareScrollView>
+      </View>
     </SafeAreaView>
   );
 }

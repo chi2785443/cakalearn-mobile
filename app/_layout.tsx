@@ -15,6 +15,7 @@ import { ToastProvider } from "@/components/ui/Toast";
 import { usePushNotifications } from '@/hooks/usePushNotifications';
 import { UpdateWallModal } from "@/components/update/UpdateWallModal";
 import { OfflineBanner } from "@/components/ui/OfflineBanner";
+import { KeyboardProvider } from "react-native-keyboard-controller";
 import {
   queryClient,
   clearQueryCache,
@@ -124,6 +125,7 @@ export default function RootLayout() {
   }, []);
 
   return (
+    <KeyboardProvider>
     <QueryClientProvider client={queryClient}>
       <ToastProvider>
         <AuthInitializer onReady={handleReady} />
@@ -162,5 +164,6 @@ export default function RootLayout() {
         {ready && <OfflineBanner />}
       </ToastProvider>
     </QueryClientProvider>
+    </KeyboardProvider>
   );
 }

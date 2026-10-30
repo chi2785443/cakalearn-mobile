@@ -1,9 +1,10 @@
 import React, { useState, useMemo, useEffect, useCallback } from 'react';
 import {
   Modal, View, Text, Pressable, TextInput, ScrollView, FlatList,
-  ActivityIndicator, KeyboardAvoidingView, Platform,
+  ActivityIndicator, Platform,
   useWindowDimensions,
 } from 'react-native';
+import { KeyboardAvoidingView } from 'react-native-keyboard-controller';
 import { Image } from 'expo-image';
 import { toast } from '@/components/ui/Toast';
 import { Ionicons } from '@expo/vector-icons';
@@ -218,7 +219,7 @@ export default function PeoplePickerSheet({
     >
       <KeyboardAvoidingView
         style={{ flex: 1 }}
-        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       >
         <View style={{ flex: 1 }}>
           {/* Backdrop */}

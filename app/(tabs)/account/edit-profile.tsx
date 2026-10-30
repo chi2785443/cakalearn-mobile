@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import {
-  View, Text, ScrollView, Pressable, TextInput,
-  ActivityIndicator, KeyboardAvoidingView, Platform,
+  View, Text, Pressable, TextInput,
+  ActivityIndicator,
 } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-controller';
 import { PhoneInput } from '@/components/ui/PhoneInput';
 import { toast } from '@/components/ui/Toast';
 import { Image } from 'expo-image';
@@ -197,7 +198,7 @@ export default function EditProfileScreen() {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: '#f8fafc' }} edges={['top']}>
-      <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
+      <View style={{ flex: 1 }}>
 
         {/* ── Hero header ── */}
         <View style={{
@@ -272,7 +273,8 @@ export default function EditProfileScreen() {
           />
         </View>
 
-        <ScrollView
+        <KeyboardAwareScrollView
+          bottomOffset={24}
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{ padding: 16, gap: 14, paddingBottom: 40 }}
           keyboardShouldPersistTaps="handled"
@@ -369,8 +371,8 @@ export default function EditProfileScreen() {
             </View>
           </Pressable>
 
-        </ScrollView>
-      </KeyboardAvoidingView>
+        </KeyboardAwareScrollView>
+      </View>
     </SafeAreaView>
   );
 }
