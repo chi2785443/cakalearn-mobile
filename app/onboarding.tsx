@@ -1,7 +1,7 @@
 import React, { useRef, useState, useCallback, useEffect } from 'react';
 import {
   View, Text, Pressable, Dimensions, FlatList,
-  StatusBar, ViewToken,
+  StatusBar, ListViewToken,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Animated, {
@@ -551,13 +551,13 @@ export default function OnboardingScreen() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAuthenticated]);
 
-  const onViewableItemsChanged = useRef(({ viewableItems }: { viewableItems: ViewToken[] }) => {
+  const onViewableItemsChanged = useRef(({ viewableItems }: { viewableItems: ListViewToken[] }) => {
     if (viewableItems[0]?.index != null) setActiveIndex(viewableItems[0].index);
   }).current;
 
   return (
     <View style={{ flex: 1, backgroundColor: slide.bg }}>
-      <StatusBar barStyle="dark-content" backgroundColor={slide.bg} />
+      <StatusBar barStyle="dark-content" />
 
       <SafeAreaView style={{ flex: 1 }} edges={['top', 'bottom']}>
 

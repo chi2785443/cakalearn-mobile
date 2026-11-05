@@ -65,7 +65,7 @@ export function OtpStep({ onSuccess, onBack }: Props) {
         )}
       />
 
-      <Button fullWidth loading={isVerifying} onPress={handleSubmit(onSubmit)}>
+      <Button fullWidth loading={isVerifying} onPress={() => handleSubmit(onSubmit)()}>
         Verify Email
       </Button>
 

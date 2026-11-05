@@ -730,7 +730,7 @@ export default function CreateAssessmentSheet({ visible, onClose, classrooms, sc
             </Field>
 
             {/* Submit */}
-            <Pressable onPress={handleSubmit(onSubmit)} disabled={createMutation.isPending} style={({ pressed }) => ({ opacity: pressed || createMutation.isPending ? 0.8 : 1, marginTop: 4 })}>
+            <Pressable onPress={() => handleSubmit(onSubmit)()} disabled={createMutation.isPending} style={({ pressed }) => ({ opacity: pressed || createMutation.isPending ? 0.8 : 1, marginTop: 4 })}>
               <View style={{ backgroundColor: '#4C3FC4', borderRadius: 14, paddingVertical: 14, alignItems: 'center', flexDirection: 'row', justifyContent: 'center', gap: 8 }}>
                 {createMutation.isPending && <ActivityIndicator color="#fff" size="small" />}
                 <Text style={{ color: '#fff', fontSize: 15, fontWeight: '800' }}>

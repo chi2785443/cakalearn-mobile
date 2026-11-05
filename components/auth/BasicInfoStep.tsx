@@ -153,7 +153,7 @@ export function BasicInfoStep({ onSuccess }: Props) {
         )}
       />
 
-      <Button fullWidth loading={isPending} onPress={handleSubmit(onSubmit)} className="mt-2">
+      <Button fullWidth loading={isPending} onPress={() => handleSubmit(onSubmit)()} className="mt-2">
         Continue
       </Button>
     </View>

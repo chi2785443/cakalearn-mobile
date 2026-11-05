@@ -9,10 +9,6 @@ import { useParentChildren } from '@/hooks/useSchool';
 import { ParentChild } from '@/services/school.service';
 
 
-function getInitials(firstName: string, lastName: string) {
-  return `${firstName[0] ?? ''}${lastName[0] ?? ''}`.toUpperCase();
-}
-
 function StatCard({ value, label, color }: { value: number; label: string; color: string }) {
   return (
     <View style={{
@@ -62,9 +58,7 @@ function ChildCard({ child }: { child: ParentChild }) {
               backgroundColor: '#fce7f3',
               alignItems: 'center', justifyContent: 'center',
             }}>
-              <Text style={{ fontSize: 18, fontWeight: '900', color: '#e11d48' }}>
-                {getInitials(s.firstName, s.lastName)}
-              </Text>
+              <Ionicons name="person" size={24} color="#e11d48" />
             </View>
           )}
           {child.isPrimaryContact && (

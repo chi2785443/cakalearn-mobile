@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { View, TextInput, Pressable, ActivityIndicator } from 'react-native';
+import { View, TextInput, Pressable, ActivityIndicator, TextInputInstance } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 interface Props {
@@ -10,7 +10,7 @@ interface Props {
 
 export default function MessageInput({ onSend, disabled, sending }: Props) {
   const [text, setText] = useState('');
-  const inputRef = useRef<TextInput>(null);
+  const inputRef = useRef<TextInputInstance>(null);
 
   const canSend = text.trim().length > 0 && !disabled && !sending;
 

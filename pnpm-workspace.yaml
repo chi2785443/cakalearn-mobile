@@ -1,4 +1,5 @@
 allowBuilds:
+  '@parcel/watcher': true
   detox: true
   dtrace-provider: true
   unrs-resolver: true
@@ -11,4 +12,5 @@ minimumReleaseAgeExclude:
   - expo-font@57.0.2
   - expo@57.0.18
 onlyBuiltDependencies:
+  - "@parcel/watcher"
   - unrs-resolver

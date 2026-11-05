@@ -249,7 +249,7 @@ export function ParentEnquiryStep({ onBack }: Props) {
           </Button>
         </View>
 
-        <Button fullWidth loading={isPending} onPress={handleSubmit(onSubmit)} className="mt-2">
+        <Button fullWidth loading={isPending} onPress={() => handleSubmit(onSubmit)()} className="mt-2">
           Send Enquiry
         </Button>
         <Button fullWidth variant="outline" onPress={() => setSubStep('school')}>

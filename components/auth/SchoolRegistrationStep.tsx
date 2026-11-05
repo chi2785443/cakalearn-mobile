@@ -145,7 +145,7 @@ export function SchoolRegistrationStep({ onBack }: Props) {
         </View>
       </View>
 
-      <Button fullWidth loading={isPending} onPress={handleSubmit(onSubmit)} className="mt-2">
+      <Button fullWidth loading={isPending} onPress={() => handleSubmit(onSubmit)()} className="mt-2">
         Create School
       </Button>
 

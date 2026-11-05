@@ -161,7 +161,7 @@ export function JobApplicationStep({ onBack }: Props) {
           </Pressable>
         </View>
 
-        <Button fullWidth loading={applying} onPress={handleSubmit(onSubmit)} className="mt-2">
+        <Button fullWidth loading={applying} onPress={() => handleSubmit(onSubmit)()} className="mt-2">
           Submit Application
         </Button>
         <Button fullWidth variant="outline" onPress={() => setSubStep('browse')}>

@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import {
-  View, Text, ScrollView, Pressable, Switch, Modal, TextInput, ActivityIndicator,
+  View, Text, ScrollView, Pressable, Switch, Modal, TextInput, ActivityIndicator, TextInputInstance,
 } from 'react-native';
 import { Image } from 'expo-image';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -227,7 +227,7 @@ function EmailVerifyModal({ visible, email, onClose, onVerified }: {
   const [step, setStep] = useState<'send' | 'enter'>('send');
   const [otp, setOtp] = useState('');
   const [countdown, setCountdown] = useState(0);
-  const inputRef = useRef<TextInput>(null);
+  const inputRef = useRef<TextInputInstance>(null);
 
   const sendMutation = useSendOtp();
   const verifyMutation = useVerifyOtp(() => { onVerified(); onClose(); });

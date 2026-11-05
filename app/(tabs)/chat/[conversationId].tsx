@@ -274,7 +274,7 @@ export default function ChatRoomScreen() {
           ListFooterComponent={
             allMessages.length > 0 ? (
               <LoadOlderButton onPress={handleLoadOlder} loading={loadingOlder} />
-            ) : null
+            ) : undefined
           }
           ListEmptyComponent={
             <View style={{ alignItems: 'center', justifyContent: 'center', paddingVertical: 60, gap: 12 }}>

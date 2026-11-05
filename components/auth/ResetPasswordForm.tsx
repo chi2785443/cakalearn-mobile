@@ -77,7 +77,7 @@ export function ResetPasswordForm({ token }: Props) {
         )}
       />
 
-      <Button fullWidth loading={isPending} onPress={handleSubmit(onSubmit)}>
+      <Button fullWidth loading={isPending} onPress={() => handleSubmit(onSubmit)()}>
         Reset Password
       </Button>
     </View>

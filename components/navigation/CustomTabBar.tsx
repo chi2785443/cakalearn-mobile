@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 // SDK 56+ : see app/(tabs)/features/_layout.tsx - the tab types now come
 // from expo-router rather than @react-navigation.
-import type { BottomTabBarProps } from 'expo-router/build/react-navigation/bottom-tabs';
+import type { BottomTabBarProps } from 'expo-router/build/react-navigation/bottom-tabs/index';
 import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -146,7 +146,7 @@ function TabButton({
 
 const TAB_NAMES = new Set(TABS.map(t => t.name));
 
-export default function CustomTabBar({ state, descriptors, navigation }: BottomTabBarProps) {
+export default function CustomTabBar({ state, descriptors, emitter, navigateToTab }: BottomTabBarProps) {
   const insets = useSafeAreaInsets();
   const { data: conversations } = useConversations();
   const totalUnread = (conversations ?? []).reduce(
@@ -179,18 +179,18 @@ export default function CustomTabBar({ state, descriptors, navigation }: BottomT
         const isAction = route.name === 'action';
 
         const onPress = () => {
-          const event = navigation.emit({
+          const event = emitter.emit({
             type: 'tabPress',
             target: route.key,
             canPreventDefault: true,
           });
           if (!focused && !event.defaultPrevented) {
-            navigation.navigate(route.name);
+            navigateToTab(route.key);
           }
         };
 
         const onLongPress = () => {
-          navigation.emit({ type: 'tabLongPress', target: route.key });
+          emitter.emit({ type: 'tabLongPress', target: route.key });
         };
 
         return (

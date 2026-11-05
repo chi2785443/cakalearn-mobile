@@ -41,12 +41,6 @@ function avatarColor(name: string): string {
   for (let i = 0; i < name.length; i++) h = name.charCodeAt(i) + ((h << 5) - h);
   return AVATAR_PALETTE[Math.abs(h) % AVATAR_PALETTE.length];
 }
-function getInitials(name: string): string {
-  const words = name.trim().split(/\s+/).filter(Boolean);
-  if (words.length >= 2) return `${words[0][0]}${words[1][0]}`.toUpperCase();
-  return name.slice(0, 2).toUpperCase();
-}
-
 const SECTION_ORDER = ['school', 'team', 'class', 'group', 'direct'];
 const SECTION_LABELS: Record<string, string> = {
   school: 'School', team: 'Admin', class: 'Classes',
@@ -57,7 +51,6 @@ const SECTION_LABELS: Record<string, string> = {
 const ConvItem = React.memo(function ConvItem({ conv, currentUserId }: { conv: Conversation; currentUserId?: string }) {
   const router = useRouter();
   const name = convDisplayName(conv);
-  const initials = getInitials(name);
   const bg = avatarColor(name);
   const hasUnread = (conv.unreadCount ?? 0) > 0;
   const preview = conv.lastMessage ?? 'No messages yet';
@@ -83,7 +76,7 @@ const ConvItem = React.memo(function ConvItem({ conv, currentUserId }: { conv: C
           gap: 12,
           backgroundColor: pressed ? '#f2f2f2' : '#fff',
         }}>
-          {/* Avatar: profile picture if available, else initials */}
+          {/* Avatar: profile picture if available, else a generic avatar */}
           {profilePicture ? (
             <Image
               source={{ uri: profilePicture }}
@@ -92,17 +85,10 @@ const ConvItem = React.memo(function ConvItem({ conv, currentUserId }: { conv: C
             />
           ) : (
             <View style={{
-              width: 52,
-              height: 52,
-              borderRadius: 26,
-              backgroundColor: bg,
-              alignItems: 'center',
-              justifyContent: 'center',
-              flexShrink: 0,
+              width: 52, height: 52, borderRadius: 26, flexShrink: 0,
+              backgroundColor: bg, alignItems: 'center', justifyContent: 'center',
             }}>
-              <Text style={{ color: '#fff', fontSize: 18, fontWeight: '700' }}>
-                {initials}
-              </Text>
+              <Ionicons name="person" size={24} color="#fff" />
             </View>
           )}
 

@@ -79,7 +79,7 @@ export function ForgotPasswordForm() {
         )}
       />
 
-      <Button fullWidth loading={isPending} onPress={handleSubmit(onSubmit)}>
+      <Button fullWidth loading={isPending} onPress={() => handleSubmit(onSubmit)()}>
         Send Reset Link
       </Button>
 

@@ -72,7 +72,7 @@ export function SignInForm() {
         </Pressable>
       </Link>
 
-      <Button testID="sign-in-button" fullWidth loading={isPending} onPress={handleSubmit(onSubmit)}>
+      <Button testID="sign-in-button" fullWidth loading={isPending} onPress={() => handleSubmit(onSubmit)()}>
         Sign In
       </Button>
 

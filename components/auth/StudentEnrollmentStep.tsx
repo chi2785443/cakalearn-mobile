@@ -260,7 +260,7 @@ export function StudentEnrollmentStep({ onBack }: Props) {
           );
         })}
 
-        <Button fullWidth loading={isPending} onPress={handleSubmit(onSubmit)} className="mt-2">
+        <Button fullWidth loading={isPending} onPress={() => handleSubmit(onSubmit)()} className="mt-2">
           Submit Enrollment
         </Button>
         <Button fullWidth variant="outline" onPress={() => setSubStep('school')}>
