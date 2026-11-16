@@ -3,6 +3,7 @@ import * as SecureStore from 'expo-secure-store';
 import { router } from 'expo-router';
 import { useAuthStore } from '@/store/authStore';
 import { ApiError, NetworkError } from '@/lib/errors';
+import { reportServerError } from '@/lib/sentry';
 
 export const ACCESS_TOKEN_KEY = 'cakalearn_access_token';
 export const REFRESH_TOKEN_KEY = 'cakalearn_refresh_token';
@@ -144,6 +145,8 @@ apiClient.interceptors.response.use(
     if (!error.response) {
       return Promise.reject(new NetworkError());
     }
+
+    reportServerError(error);
 
     // For all other errors (including 401 from auth endpoints), surface the real message.
     return Promise.reject(new ApiError(extractErrorMessage(error), error.response.status));

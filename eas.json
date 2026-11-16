@@ -9,7 +9,8 @@
       "distribution": "internal",
       "android": {
         "buildType": "apk"
-      }
+      },
+      "env": { "EXPO_PUBLIC_SENTRY_ENVIRONMENT": "development" }
     },
     "preview": {
       "distribution": "internal",
@@ -18,7 +19,11 @@
         "buildType": "apk"
       },
       "env": {
-        "EXPO_PUBLIC_BACKEND_BASE_URL": "https://api.cakalearn.cakale.com/api/v1/"
+        "EXPO_PUBLIC_BACKEND_BASE_URL": "https://api.cakalearn.cakale.com/api/v1/",
+        "EXPO_PUBLIC_SENTRY_ENVIRONMENT": "preview",
+        "EXPO_PUBLIC_SENTRY_DSN": "https://6129eaef491a25a35a0ef31180055d22@o4512440720818176.ingest.de.sentry.io/4512440794415184",
+        "EXPO_PUBLIC_POSTHOG_API_KEY": "phc_wGoTGJ6bEod9HyfQ5obPCZ5QXwVKffwbf7DVrj6cyFsh",
+        "EXPO_PUBLIC_POSTHOG_HOST": "https://eu.i.posthog.com"
       }
     },
     "production": {
@@ -27,7 +32,11 @@
         "buildType": "app-bundle"
       },
       "env": {
-        "EXPO_PUBLIC_BACKEND_BASE_URL": "https://api.cakalearn.cakale.com/api/v1/"
+        "EXPO_PUBLIC_BACKEND_BASE_URL": "https://api.cakalearn.cakale.com/api/v1/",
+        "EXPO_PUBLIC_SENTRY_ENVIRONMENT": "production",
+        "EXPO_PUBLIC_SENTRY_DSN": "https://6129eaef491a25a35a0ef31180055d22@o4512440720818176.ingest.de.sentry.io/4512440794415184",
+        "EXPO_PUBLIC_POSTHOG_API_KEY": "phc_wGoTGJ6bEod9HyfQ5obPCZ5QXwVKffwbf7DVrj6cyFsh",
+        "EXPO_PUBLIC_POSTHOG_HOST": "https://eu.i.posthog.com"
       }
     }
   },

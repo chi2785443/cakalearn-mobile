@@ -72,12 +72,29 @@
       ],
       "expo-video",
       "./plugins/withDetoxAndroid.js",
+      [
+        "@sentry/react-native/expo",
+        {
+          "organization": "cakale",
+          "project": "cakalearn"
+        }
+      ],
       "expo-font",
+      "@sentry/react-native",
       "expo-secure-store",
       "expo-web-browser",
       "expo-image",
       "expo-sharing",
-      "expo-status-bar"
+      "expo-status-bar",
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "enableMinifyInReleaseBuilds": true,
+            "enableShrinkResourcesInReleaseBuilds": true
+          }
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true,

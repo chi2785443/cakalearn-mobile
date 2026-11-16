@@ -5,8 +5,12 @@ import { LogBox } from "react-native";
 import { Stack } from "expo-router";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { StatusBar } from "expo-status-bar";
+import * as Sentry from "@sentry/react-native";
+import { PostHogProvider, usePostHog } from "posthog-react-native";
 import * as SecureStore from "expo-secure-store";
 import * as SplashScreen from "expo-splash-screen";
+import { initSentry } from "@/lib/sentry";
+import { posthogApiKey, posthogHost, posthogEnabled, POSTHOG_APP_TAG } from "@/lib/posthog";
 import { useAuthStore } from "@/store/authStore";
 import { ACCESS_TOKEN_KEY } from "@/services/axios.service";
 import { authService } from "@/services/auth.service";
@@ -34,6 +38,7 @@ import {
 } from "@expo-google-fonts/poppins";
 
 SplashScreen.preventAutoHideAsync();
+initSentry();
 
 // This dev-only warning's LogBox notification banner overlaps the bottom tab bar
 // (blocking taps on "Account"/"Chat") on emulators/devices with reduced motion enabled.
@@ -110,7 +115,27 @@ function OfflineDataGate() {
   return null;
 }
 
-export default function RootLayout() {
+/** Tags every event with which app sent it — this PostHog project is shared with Cakonstruct. */
+function AppTag() {
+  const posthog = usePostHog();
+  useEffect(() => {
+    posthog?.register({ app: POSTHOG_APP_TAG });
+  }, [posthog]);
+  return null;
+}
+
+/** No-op wrapper while PostHog is off (no API key set for this build profile). */
+function AnalyticsGate({ children }: { children: React.ReactNode }) {
+  if (!posthogEnabled) return <>{children}</>;
+  return (
+    <PostHogProvider apiKey={posthogApiKey} options={{ host: posthogHost }} autocapture>
+      <AppTag />
+      {children}
+    </PostHogProvider>
+  );
+}
+
+function RootLayout() {
   const [ready, setReady] = React.useState(false);
   const [fontsLoaded] = useFonts({
     Poppins_400Regular,
@@ -125,6 +150,7 @@ export default function RootLayout() {
   }, []);
 
   return (
+    <AnalyticsGate>
     <KeyboardProvider>
     <QueryClientProvider client={queryClient}>
       <ToastProvider>
@@ -165,5 +191,9 @@ export default function RootLayout() {
       </ToastProvider>
     </QueryClientProvider>
     </KeyboardProvider>
+    </AnalyticsGate>
   );
 }
+
+// Sentry.wrap adds the error boundary + touch breadcrumbs; a no-op while Sentry is off.
+export default Sentry.wrap(RootLayout);
